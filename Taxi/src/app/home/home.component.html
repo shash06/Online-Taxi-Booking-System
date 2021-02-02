@@ -1,0 +1,28 @@
+<nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo center">
+        <i class="material-icons">directions_car</i>Quick Cabs</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down"> 
+          <li *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/adminPanel">Admin Panel</a> </li>
+          <li *ngIf="userService.roleMatch(['Customer'])"> <a routerLink="/customerPanel">Customer Panel</a> </li>
+          <li *ngIf="userService.roleMatch(['Employee'])"> <a routerLink="/employeePanel">Employee Panel</a> </li>
+          <li> <a (click)="Logout()">Logout</a> </li> 
+        </ul>
+    </div>
+  </nav>
+  <div class="row" *ngIf="userClaims">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-content">
+          <span>Username :{{userClaims.UserName}}</span>
+          <br>
+          <span>Email : {{userClaims.Email}}</span>
+          <br>
+          <span>Name : {{userClaims.Name}}</span>
+          <br>
+          <span>Logged On : {{userClaims.LoggedOn}}</span>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo center">
+        <i class="material-icons">directions_car</i>Quick Cabs</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down"> <li> <a (click)="Logout()">Logout</a> </li> </ul>
+    </div>
+  </nav>
+  <div class="collection">
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/employee"><i class="material-icons prefix">control_point</i> Create a new Employee</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/employeeroster"><i class="material-icons prefix">control_point</i> Create a new Employee Rosters</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/taxi"><i class="material-icons prefix">control_point</i> Create new Taxi</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/employee-list"><i class="material-icons prefix">format_align_justify</i> Employee List</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/employeeroster-list"><i class="material-icons prefix">format_align_justify</i> Employee Rosters List</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/taxi-list"><i class="material-icons prefix">format_align_justify</i> List of Taxis</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/customer-list"><i class="material-icons prefix">format_align_justify</i> List of Customers</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/comment-list"><i class="material-icons prefix">format_align_justify</i> List of Comments</a> </a>
+    <a class="collection-item" *ngIf="userService.roleMatch(['Admin'])"> <a routerLink="/booking-list"><i class="material-icons prefix">format_align_justify</i> List of Bookings</a> </a>
+  </div>
+  

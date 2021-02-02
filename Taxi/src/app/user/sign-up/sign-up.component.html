@@ -1,0 +1,77 @@
+<form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">account_circle</i>
+      <input class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="user.Name" required>   
+      <label data-error="Required field!">Name</label>   
+    </div>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">https</i>
+      <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required minlength="3"> 
+      <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">email</i>
+      <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" [pattern]="emailPattern"> 
+      <label data-error="Invalid email!">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <label data-error="Required field!">DOB</label>
+      <input type="text" class="datepicker" name="DOB" #DOB="ngModel" [(ngModel)]="user.DOB" required>
+    </div>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">home</i>
+      <input type="text" name="Address" #Address="ngModel" [(ngModel)]="user.Address" required>
+      <label data-error="Required field!">Address</label>
+    </div>
+  </div>
+  <div class="row">
+  <div class="input-field col s6">
+    <i class="material-icons prefix">phone</i>
+    <input type="text" name="PhoneNumber" #PhoneNumber="ngModel" [(ngModel)]="user.PhoneNumber" required> 
+    <label data-error="Required field!">PhoneNumber</label>
+  </div>
+  <!--<div class="input-field col s6">
+    <input type="text" name="Gender" #Gender="ngModel" [(ngModel)]="user.Gender" required>
+    <label data-error="Required field!">Gender</label>
+  </div>-->
+  <!--<div class="input-field col s6">
+    <label>Gender</label>
+    <select type="text" >
+      <option value='' disabled selected>Choose your option</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
+    </select>
+  </div>-->
+  <a class='dropdown-button' data-target='dropdown1'>Drop Me!</a>
+
+    <ul id='dropdown1' class='dropdown-content'>
+    <li><a>one</a></li>
+    <li><a>two</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a>three</a></li>
+    <li><a><i class="material-icons">view_module</i>four</a></li>
+    <li><a><i class="material-icons">cloud</i>five</a></li>
+  </ul>
+</div>
+<div class="row" *ngIf="roles">
+  <ul>
+    <li *ngFor="let item of roles;let i = index">
+      <input type="checkbox" [id]="'roles-'+i" value="{{item.Id}}" [checked]="item.selected"  (change)="updateSelectedRoles(i)">
+      <label [for]="'roles-'+i">{{item.Name}}</label>
+    </li>
+  </ul>
+</div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+</form>
+

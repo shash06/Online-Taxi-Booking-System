@@ -1,0 +1,45 @@
+<form class="col s12 white" #employeeRegistrationForm="ngForm" (ngSubmit)="OnSubmit(employeeRegistrationForm)">
+  <div class="row">
+    <div class="input-field col s6">
+      <input class="validate" type="text" name="Employee_Name" #Employee_Name="ngModel" [(ngModel)]="service.formData.Employee_Name" required>   
+      <label data-error="Required field!">Employee Name</label>   
+    </div>
+    <div class="input-field col s6">
+      <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" required minlength="3"> 
+      <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input class="validate" type="text" name="Email_ID" #Email_ID="ngModel" [(ngModel)]="service.formData.Email_ID" [pattern]="emailPattern"> 
+      <label data-error="Invalid email!">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="date" name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB">
+      <label>DOB</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="text" name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address">
+      <label>Address</label>
+    </div>
+  </div>
+  <div class="row">
+  <div class="input-field col s6">
+    <input type="text" name="Phone_No" #Phone_No="ngModel" [(ngModel)]="service.formData.Phone_No">
+    <label>PhoneNumber</label>
+  </div>
+  <div class="input-field col s6">
+    <input type="text" name="Gender" #Gender="ngModel" [(ngModel)]="service.formData.Gender">
+    <label>Gender</label>
+  </div>
+</div>
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!employeeRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

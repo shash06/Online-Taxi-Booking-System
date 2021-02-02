@@ -1,0 +1,63 @@
+<form class="col s12 white" #employeeRegistrationForm="ngForm" (ngSubmit)="OnSubmit(employeeRegistrationForm)">
+    <div class="row">
+      <div class="input-field col s6">
+        <input class="validate" type="text" name="Employee_ID" #Employee_ID="ngModel" [(ngModel)]="service.formData.Employee_ID" required>   
+        <label data-error="Required field!">Employee ID</label>   
+      </div>
+      <div class="input-field col s6">
+        <input class="validate" type="text" name="Customer_ID" #Customer_ID="ngModel" [(ngModel)]="service.formData.Customer_ID" required>   
+        <label data-error="Required field!">Customer ID</label>   
+      </div>
+      <!--<div class="input-field col s6">
+        <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" required minlength="3"> 
+        <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
+      </div>-->
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input class="validate" type="date" name="Booking_Date" #Booking_Date="ngModel" [(ngModel)]="service.formData.Booking_Date"> 
+        <label data-error="Invalid email!">Booking Date</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input type="time" name="Booking_Time" #Booking_Time="ngModel" [(ngModel)]="service.formData.Booking_Time">
+        <label>Booking Time</label>
+      </div>
+      <div class="input-field col s6">
+        <input type="text" name="Pickup_Location" #Pickup_Location="ngModel" [(ngModel)]="service.formData.Pickup_Location">
+        <label>Pickup Location</label>
+      </div>
+    </div>
+    <div class="row">
+    <div class="input-field col s6">
+      <input type="text" name="Drop_Location" #Drop_Location="ngModel" [(ngModel)]="service.formData.Drop_Location">
+      <label>Drop Location</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="text" name="Vehicle_Type" #Vehicle_Type="ngModel" [(ngModel)]="service.formData.Vehicle_Type">
+      <label>Vehicle Type</label>
+    </div>
+    <!--div class="input-field col s6">
+        <input type="text" name="Fare" #Fare="ngModel" [(ngModel)]="service.formData.Fare">
+        <label>Fare</label>
+      </div>-->
+      <div>
+        <label #lblname id="lblname"></label>
+      </div>
+  </div>
+  
+  
+    <div class="row">
+      <div class="input-field col s12">
+        <button [disabled]="!employeeRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  <!--<div class="row">
+    <div class="input-field col s12">
+      <button  (click)="getFare(lblname.id,employeeRegistrationForm)"  class="btn-large btn-submit" type="submit">Calculate Fare</button>
+    </div>
+  </div>
+</form>-->
